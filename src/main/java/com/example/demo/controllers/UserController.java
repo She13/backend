@@ -1,6 +1,7 @@
 package com.example.demo.controllers;
 
 import java.io.IOException;
+import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,7 @@ public class UserController {
 	
 	protected ObjectMapper mapper;
 	
+	// Metodo SAVE OR UPDATE
 	@RequestMapping(value="/saveOrUpdate",method=RequestMethod.POST)
 	public RestResponse saveOrUpdate(@RequestBody String userJson) 
 			throws JsonParseException, JsonMappingException, IOException {
@@ -59,5 +61,11 @@ public class UserController {
 		}
 		
 		return isValid;
+	}
+
+	// Metodo GET USERS
+	@RequestMapping(value="/getUsers",method=RequestMethod.GET)
+	public List<User> getUsers() {
+		return this.userService.findAll();
 	}
 }
