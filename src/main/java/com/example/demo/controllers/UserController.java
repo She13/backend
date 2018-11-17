@@ -36,7 +36,7 @@ public class UserController {
 		
 		if(!this.validate(user)) {
 			return new RestResponse(HttpStatus.NOT_ACCEPTABLE.value(),
-					"los campos obligatorios no estan proporcionados.");
+					"los campos obligatorios no han sido proporcionados");
 		}
 		
 		this.userService.save(user);
